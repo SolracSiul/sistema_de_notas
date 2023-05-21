@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { useState } from "react";
 import { useContext } from 'react';
 import { AuthContext } from "../contexts/Auth/AuthContext";
-
+import logo from '../assets/imgs/logo.jpeg'
 export const Header = () =>{
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const auth = useContext(AuthContext)
@@ -19,22 +19,26 @@ export const Header = () =>{
  
   return (
     <nav className="">
-    <div className="mx-auto px-4">
-      <div className="bg-gray-400 py-4 md:py-6">
+    <div className="">
+      <div className="bg-gray-600">
         <div className="flex items-center justify-between">
           <div className="flex justify-between">
             <div>
-              <a href="/" className="text-lg font-semibold text-gray-800">Logo</a>
+              <img src={logo} alt="" width={120} height={120}/>
             </div>
           </div>
           <div className="items-end hidden md:block space-x-4 pr-2">
-            <Link to="/">Home</Link>  
-            <ul>
-        <li>
-         <Link to="/private">Logar</Link>
-         {auth.user && <button onClick={handleLogout}>Sair</button>}
-        </li>
-      </ul>
+            <ul className="flex flex-row gap-4">
+              <li>
+              <Link to="/">Home</Link>  
+              </li>
+              <li>
+              {auth.user && <button onClick={handleLogout}>Sair</button>}
+              </li>
+              <li>
+              {auth.user ? null : <Link to="/private">Logar</Link>}
+              </li>
+            </ul>
           </div>
           <div className="md:hidden">
           <button
@@ -68,15 +72,18 @@ export const Header = () =>{
           style={{ width: '100%' }}
         >
         <div className={`md:hidden transition-all duration-300  ${isMenuOpen ? 'block ' : 'hidden'}`} style={{ width: '100%' }}>
-          <ul className="text-sm text-gray-800 z-99 absolute bg-blue-400 w-full px-4">
-            <li className="py-2">
-              <span className="block hover:text-gray-700"><Link to="/">Home</Link></span>
-            </li>
-            <li className="py-2">
-              <span className="block hover:text-gray-700"><Link to="/private">Logar</Link></span>
-            </li>
-           
-          </ul>
+        <ul className="text-[26px] text-white z-99 absolute bg-blue-400 w-full px-4">
+          <li className="py-2">
+            <span className="block text-[26px] hover:text-gray-700">
+              <Link to="/" className="text-red-400 hover:text-gray-700">Home</Link>
+            </span>
+          </li>
+          <li className="py-2">
+            <span className="block hover:text-gray-700">
+              <Link to="/private" className="text-white hover:text-gray-700">Logar</Link>
+            </span>
+          </li>
+        </ul>
         </div>
       </div>
     </div>
