@@ -12,7 +12,7 @@ export const Login = () =>{
             if(isLogged){
                 navigate('/private')
             }else{
-                alert("Não deu certo")
+                alert("Dados inválidos(token n encontrado)")
             }
         }
     }

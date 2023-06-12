@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useContext } from 'react';
 import { AuthContext } from "../contexts/Auth/AuthContext";
 import logo from '../assets/imgs/logo.jpeg'
+
 export const Header = () =>{
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const auth = useContext(AuthContext)

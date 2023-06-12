@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { AuthContext } from '../../contexts/Auth/AuthContext'
 import { Trophy } from '@phosphor-icons/react'
 import BellRinging from '@phosphor-icons/react/dist/icons/BellRinging'
+import { Link } from "react-router-dom"
 
 export const Private = () =>{
   const auth = useContext(AuthContext)
@@ -10,7 +11,9 @@ export const Private = () =>{
       <div className="w-[15vw] min-h-[80vh]" style={{backgroundColor :"6D92A1"}}>
       <ul className="list-none">
         <li className="border-b border-black py-4 px-4">Início</li>
-        <li className="border-b border-black py-4 px-4">Cadastro</li>
+        <li className="border-b border-black py-4 px-4">
+        <Link to="/students" className="text-white hover:text-gray-700">Cadastrar alunos</Link>
+        </li>
         <li className="border-b border-black py-4 px-4">Matérias</li>
         <li className="border-b border-black py-4 px-4">Histórico</li>
         <li className="border-b border-black py-4 px-4">Atividades</li>
